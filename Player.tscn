@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://leg.png" type="Texture" id=2]
+[ext_resource path="res://beam.png" type="Texture" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+
+[sub_resource type="PhysicsMaterial" id=4]
+friction = 5.0
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 100, 15 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 100, 70 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 100, 70 )
+
+[node name="Player" type="RigidBody2D"]
+position = Vector2( 0, -9.238 )
+physics_material_override = SubResource( 4 )
+script = ExtResource( 1 )
+
+[node name="RigidBody2D" type="Node2D" parent="."]
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Polygons" type="Node2D" parent="RigidBody2D"]
+
+[node name="Front_Leg" type="Polygon2D" parent="RigidBody2D/Polygons"]
+position = Vector2( -500, -50 )
+rotation = -0.0124198
+texture = ExtResource( 2 )
+skeleton = NodePath("../../Skeleton2D")
+polygon = PoolVector2Array( 122.877, 61.6438, 142.055, 301.37, 151.644, 338.356, 154.384, 636.986, 140.685, 665.753, 32.4657, 716.438, 6.43835, 760.274, 272.192, 757.534, 254.384, 683.562, 263.973, 641.096, 291.37, 347.945, 273.562, 282.192, 313.288, 171.233, 317.397, 31.5069, 211.918, 295.89, 211.918, 335.616, 214.658, 630.137, 198.219, 669.863 )
+uv = PoolVector2Array( 122.877, 61.6438, 142.055, 301.37, 151.644, 338.356, 154.384, 636.986, 140.685, 665.753, 32.4657, 716.438, 6.43835, 760.274, 272.192, 757.534, 254.384, 683.562, 263.973, 641.096, 291.37, 347.945, 273.562, 282.192, 313.288, 171.233, 317.397, 31.5069, 211.918, 295.89, 211.918, 335.616, 214.658, 630.137, 198.219, 669.863 )
+polygons = [ PoolIntArray( 0, 1, 14, 11, 12, 13 ), PoolIntArray( 1, 2, 15, 14 ), PoolIntArray( 15, 10, 11, 14 ), PoolIntArray( 2, 3, 16, 9, 10, 15 ), PoolIntArray( 3, 4, 17, 16 ), PoolIntArray( 16, 9, 8, 17 ), PoolIntArray( 4, 5, 6, 7, 8, 17 ) ]
+bones = [ NodePath("Front_Thigh"), PoolRealArray( 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 1, 0.5, 0, 0 ), NodePath("Front_Thigh/Front_Shin"), PoolRealArray( 0, 0.5, 1, 1, 0.5, 0, 0, 0, 0.5, 1, 1, 0.5, 0, 0, 0.5, 1, 1, 0.5 ), NodePath("Front_Thigh/Front_Shin/Front_Foot"), PoolRealArray( 0, 0, 0, 0.5, 1, 1, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0.5, 1 ), NodePath("Back_Thigh"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Back_Thigh/Back_Shin"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Back_Thigh/Back_Shin/Back_Foot"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
+internal_vertex_count = 4
+
+[node name="Back_Leg" type="Polygon2D" parent="RigidBody2D/Polygons"]
+position = Vector2( 60, -50 )
+rotation = -0.0136098
+texture = ExtResource( 2 )
+skeleton = NodePath("../../Skeleton2D")
+polygon = PoolVector2Array( 122.877, 61.6438, 142.055, 301.37, 151.644, 338.356, 154.384, 636.986, 140.685, 665.753, 32.4657, 716.438, 6.43835, 760.274, 272.192, 757.534, 254.384, 683.562, 263.973, 641.096, 291.37, 347.945, 273.562, 282.192, 313.288, 171.233, 317.397, 31.5069, 211.918, 295.89, 211.918, 335.616, 214.658, 630.137, 198.219, 669.863 )
+uv = PoolVector2Array( 122.877, 61.6438, 142.055, 301.37, 151.644, 338.356, 154.384, 636.986, 140.685, 665.753, 32.4657, 716.438, 6.43835, 760.274, 272.192, 757.534, 254.384, 683.562, 263.973, 641.096, 291.37, 347.945, 273.562, 282.192, 313.288, 171.233, 317.397, 31.5069, 211.918, 295.89, 211.918, 335.616, 214.658, 630.137, 198.219, 669.863 )
+polygons = [ PoolIntArray( 0, 1, 14, 11, 12, 13 ), PoolIntArray( 1, 2, 15, 14 ), PoolIntArray( 15, 10, 11, 14 ), PoolIntArray( 2, 3, 16, 9, 10, 15 ), PoolIntArray( 3, 4, 17, 16 ), PoolIntArray( 16, 9, 8, 17 ), PoolIntArray( 4, 5, 6, 7, 8, 17 ) ]
+bones = [ NodePath("Front_Thigh"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Front_Thigh/Front_Shin"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Front_Thigh/Front_Shin/Front_Foot"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Back_Thigh"), PoolRealArray( 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 1, 0.5, 0, 0 ), NodePath("Back_Thigh/Back_Shin"), PoolRealArray( 0, 0.5, 1, 1, 0.5, 0, 0, 0, 0.5, 1, 1, 0.5, 0, 0, 0.5, 1, 1, 0.5 ), NodePath("Back_Thigh/Back_Shin/Back_Foot"), PoolRealArray( 0, 0, 0, 0.5, 1, 1, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0.5, 1 ) ]
+internal_vertex_count = 4
+
+[node name="Plank" type="Polygon2D" parent="RigidBody2D/Polygons"]
+position = Vector2( -382.472, -163.678 )
+texture = ExtResource( 3 )
+polygon = PoolVector2Array( -3, 104, -3, 224, 770, 223, 768, 101 )
+uv = PoolVector2Array( -3, 104, -3, 224, 770, 223, 768, 101 )
+
+[node name="Skeleton2D" type="Skeleton2D" parent="RigidBody2D"]
+
+[node name="Front_Thigh" type="Bone2D" parent="RigidBody2D/Skeleton2D"]
+position = Vector2( -280, 0 )
+rest = Transform2D( 1, 0, 0, 1, -280, 0 )
+default_length = 260.0
+
+[node name="Front_Shin" type="Bone2D" parent="RigidBody2D/Skeleton2D/Front_Thigh"]
+position = Vector2( 0, 260 )
+rest = Transform2D( 1, 0, 0, 1, 0, 260 )
+default_length = 370.0
+
+[node name="Front_Foot" type="Bone2D" parent="RigidBody2D/Skeleton2D/Front_Thigh/Front_Shin"]
+position = Vector2( 0, 370 )
+rest = Transform2D( 1, 0, 0, 1, 0, 370 )
+default_length = 100.0
+
+[node name="Back_Thigh" type="Bone2D" parent="RigidBody2D/Skeleton2D"]
+position = Vector2( 280, 0 )
+rest = Transform2D( 1, 0, 0, 1, 280, 0 )
+default_length = 260.0
+
+[node name="Back_Shin" type="Bone2D" parent="RigidBody2D/Skeleton2D/Back_Thigh"]
+position = Vector2( 0, 260 )
+rest = Transform2D( 1, 0, 0, 1, 0, 260 )
+default_length = 370.0
+
+[node name="Back_Foot" type="Bone2D" parent="RigidBody2D/Skeleton2D/Back_Thigh/Back_Shin"]
+position = Vector2( 0, 370 )
+rest = Transform2D( 1, 0, 0, 1, 0, 370 )
+default_length = 100.0
+
+[node name="Planky" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Front_Foot" type="CollisionShape2D" parent="."]
+position = Vector2( -163.859, -8.77818 )
+scale = Vector2( 0.25, 0.25 )
+shape = SubResource( 2 )
+
+[node name="Front_Marker" type="Sprite" parent="Front_Foot"]
+rotation = 0.0569215
+texture = ExtResource( 4 )
+
+[node name="Back_Foot" type="CollisionShape2D" parent="."]
+position = Vector2( 69.7376, 157.519 )
+scale = Vector2( 0.25, 0.25 )
+shape = SubResource( 3 )
+
+[node name="Back_Marker" type="Sprite" parent="Back_Foot"]
+texture = ExtResource( 4 )
