@@ -1,15 +1,22 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://18 Gradient Skies (640x480)/day.png" type="Texture" id=1]
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Sprute.png" type="Texture" id=4]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 16, 16 )
+
+[sub_resource type="PhysicsMaterial" id=4]
+bounce = 100.0
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 34.2927
 
 [node name="Root" type="Node"]
 
@@ -19,9 +26,9 @@ scale = Vector2( 3.2, 1.3 )
 texture = ExtResource( 1 )
 
 [node name="Player" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Player"]
+visible = false
 position = Vector2( 224, 128 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -29,22 +36,26 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Player/KinematicBody2D"]
+visible = false
 z_index = 1
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/KinematicBody2D"]
+visible = false
 shape = SubResource( 1 )
 
 [node name="Grass" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Grass"]
+editor/display_folded = true
 position = Vector2( 16, 560 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D"]
 texture = ExtResource( 4 )
@@ -58,7 +69,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D61"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D61"]
 texture = ExtResource( 4 )
@@ -72,7 +83,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D13"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D13"]
 texture = ExtResource( 4 )
@@ -86,7 +97,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D44"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D44"]
 texture = ExtResource( 4 )
@@ -100,7 +111,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D23"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D23"]
 texture = ExtResource( 4 )
@@ -114,7 +125,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D55"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D55"]
 texture = ExtResource( 4 )
@@ -128,7 +139,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D32"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D32"]
 texture = ExtResource( 4 )
@@ -142,7 +153,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D58"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D58"]
 texture = ExtResource( 4 )
@@ -156,7 +167,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D2"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D2"]
 texture = ExtResource( 4 )
@@ -170,7 +181,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D63"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D63"]
 texture = ExtResource( 4 )
@@ -184,7 +195,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D15"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D15"]
 texture = ExtResource( 4 )
@@ -198,7 +209,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D42"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D42"]
 texture = ExtResource( 4 )
@@ -212,7 +223,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D22"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D22"]
 texture = ExtResource( 4 )
@@ -226,7 +237,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D52"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D52"]
 texture = ExtResource( 4 )
@@ -240,7 +251,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D31"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D31"]
 texture = ExtResource( 4 )
@@ -254,7 +265,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D59"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D59"]
 texture = ExtResource( 4 )
@@ -268,7 +279,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D3"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D3"]
 texture = ExtResource( 4 )
@@ -282,7 +293,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D64"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D64"]
 texture = ExtResource( 4 )
@@ -296,7 +307,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D16"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D16"]
 texture = ExtResource( 4 )
@@ -310,7 +321,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D45"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D45"]
 texture = ExtResource( 4 )
@@ -324,7 +335,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D24"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D24"]
 texture = ExtResource( 4 )
@@ -338,7 +349,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D50"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D50"]
 texture = ExtResource( 4 )
@@ -352,7 +363,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D30"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D30"]
 texture = ExtResource( 4 )
@@ -366,7 +377,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D60"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D60"]
 texture = ExtResource( 4 )
@@ -380,7 +391,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D4"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D4"]
 texture = ExtResource( 4 )
@@ -394,7 +405,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D62"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D62"]
 texture = ExtResource( 4 )
@@ -408,7 +419,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D14"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D14"]
 texture = ExtResource( 4 )
@@ -422,7 +433,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D33"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D33"]
 texture = ExtResource( 4 )
@@ -436,7 +447,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D17"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D17"]
 texture = ExtResource( 4 )
@@ -450,7 +461,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D34"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D34"]
 texture = ExtResource( 4 )
@@ -464,7 +475,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D25"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D25"]
 texture = ExtResource( 4 )
@@ -478,7 +489,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D53"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D53"]
 texture = ExtResource( 4 )
@@ -492,7 +503,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D5"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D5"]
 texture = ExtResource( 4 )
@@ -506,7 +517,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D43"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D43"]
 texture = ExtResource( 4 )
@@ -520,7 +531,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D10"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D10"]
 texture = ExtResource( 4 )
@@ -534,7 +545,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D40"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D40"]
 texture = ExtResource( 4 )
@@ -548,7 +559,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D20"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D20"]
 texture = ExtResource( 4 )
@@ -562,7 +573,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D35"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D35"]
 texture = ExtResource( 4 )
@@ -576,7 +587,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D26"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D26"]
 texture = ExtResource( 4 )
@@ -590,7 +601,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D57"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D57"]
 texture = ExtResource( 4 )
@@ -604,7 +615,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D6"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D6"]
 texture = ExtResource( 4 )
@@ -618,7 +629,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D48"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D48"]
 texture = ExtResource( 4 )
@@ -632,7 +643,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D11"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D11"]
 texture = ExtResource( 4 )
@@ -646,7 +657,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D41"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D41"]
 texture = ExtResource( 4 )
@@ -660,7 +671,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D21"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D21"]
 texture = ExtResource( 4 )
@@ -674,7 +685,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D36"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D36"]
 texture = ExtResource( 4 )
@@ -688,7 +699,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D27"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D27"]
 texture = ExtResource( 4 )
@@ -702,7 +713,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D51"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D51"]
 texture = ExtResource( 4 )
@@ -716,7 +727,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D7"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D7"]
 texture = ExtResource( 4 )
@@ -730,7 +741,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D49"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D49"]
 texture = ExtResource( 4 )
@@ -744,7 +755,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D12"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D12"]
 texture = ExtResource( 4 )
@@ -758,7 +769,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D37"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D37"]
 texture = ExtResource( 4 )
@@ -772,7 +783,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D18"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D18"]
 texture = ExtResource( 4 )
@@ -786,7 +797,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D46"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D46"]
 texture = ExtResource( 4 )
@@ -800,7 +811,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D28"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D28"]
 texture = ExtResource( 4 )
@@ -814,7 +825,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D54"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D54"]
 texture = ExtResource( 4 )
@@ -828,7 +839,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D8"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D8"]
 texture = ExtResource( 4 )
@@ -842,7 +853,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D38"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D38"]
 texture = ExtResource( 4 )
@@ -856,7 +867,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D9"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D9"]
 texture = ExtResource( 4 )
@@ -870,7 +881,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D39"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D39"]
 texture = ExtResource( 4 )
@@ -884,7 +895,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D19"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D19"]
 texture = ExtResource( 4 )
@@ -898,7 +909,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D47"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D47"]
 texture = ExtResource( 4 )
@@ -912,7 +923,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D29"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D29"]
 texture = ExtResource( 4 )
@@ -926,7 +937,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grass/StaticBody2D56"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Grass/StaticBody2D56"]
 texture = ExtResource( 4 )
@@ -934,6 +945,7 @@ region_enabled = true
 region_rect = Rect2( 194, 32, 32, 33 )
 
 [node name="Dirt" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Sprite" type="Sprite" parent="Dirt"]
 position = Vector2( 16, 592 )
@@ -2088,3 +2100,19 @@ position = Vector2( 2032, 656.5 )
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 0, 163, 32, 32 )
+
+[node name="Player2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 657.822, 100.399 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2( 657.895, 45.2631 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D"]
+texture = ExtResource( 3 )
